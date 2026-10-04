@@ -1,0 +1,17 @@
+{
+  "name": "docs-formulavize",
+  "version": "1.0.0",
+  "description": "The documentation website for formulavize",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": ["documentation", "formulavize"],
+  "author": "anthologen",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.20"
+  }
+}

@@ -3,7 +3,12 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Formulavize",
   description: "Visual workflow editor for the fiz DSL",
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/formulavize_logo.svg' }],
+    ['link', { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  ],
   themeConfig: {
+    logo: '/formulavize_logo.svg',
     nav: [
       { text: 'Guide', link: '/guide/calls-and-variables' },
       { text: 'Reference', link: '/reference/language-syntax' },

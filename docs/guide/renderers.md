@@ -124,6 +124,9 @@ Each layout takes its own options, named as that layout's own documentation
 names them. See [Renderer Directives](/reference/renderer-directives) for the
 complete per-layout option tables.
 
+The three automatic layouts below are shown with the same four-node recipe, so
+the figures differ only by the layout and its options.
+
 ### dagre
 
 The default. Hierarchical, with a sort hint that loosely preserves the order
@@ -135,7 +138,15 @@ statements appear in the recipe.
   rankDir: "LR"
   rankSep: 80
 }
+
+x = load()
+a = clean(x)
+b = verify(x)
+y = merge(a, b)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-01.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/renderers/fig-01.dark.svg" alt="Rendered graph for the recipe above">
 
 ### breadthfirst
 
@@ -145,9 +156,17 @@ Cytoscape's built-in breadthfirst layout.
 ^cytoscape{
   layout: "breadthfirst"
   direction: "rightward"
-  spacingFactor: 1.2
+  spacingFactor: 2.5
 }
+
+x = load()
+a = clean(x)
+b = verify(x)
+y = merge(a, b)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-02.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/renderers/fig-02.dark.svg" alt="Rendered graph for the recipe above">
 
 ::: warning
 `breadthfirst` ignores compound parents. A recipe that uses namespaces will draw
@@ -167,7 +186,15 @@ fiz property name cannot contain `.`, so they are written with dashes
   elk-direction: "RIGHT"
   elk-spacing-nodeNode: 40
 }
+
+x = load()
+a = clean(x)
+b = verify(x)
+y = merge(a, b)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-03.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/renderers/fig-03.dark.svg" alt="Rendered graph for the recipe above">
 
 Any `elk-*` key not in the documented list is passed straight through with the
 same dash-to-dot rewriting, which keeps the whole ELK option namespace reachable.

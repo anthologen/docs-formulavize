@@ -19,6 +19,7 @@ Quick-reference for all fiz language constructs.
 | Anonymous namespace | `[ stmts ]` | `[ a = f(x) ]` |
 | Import | `@ "path.fiz"` | `@ "./lib.fiz"` |
 | Named import | `name @ "path.fiz"` | `lib @ "./lib.fiz"` |
+| Assigned import | `lhs = name @ "path.fiz"` | `x = lib @ "./lib.fiz"` |
 | Style tag declaration | `#name { styles }` | `#bold { border-width: 4 }` |
 | Style tag reference | `#name` | `f(x){ #bold }` |
 | Qualified style tag | `#ns.name` | `f(x){ #ns.bold }` |

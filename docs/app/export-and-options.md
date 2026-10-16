@@ -58,9 +58,9 @@ The tabs are:
 | **Output** | The rendered graph (always present) |
 | **AST** | The abstract syntax tree produced by the parser |
 | **DAG** | The compiled directed acyclic graph structure |
-| **Errors** | Every [compilation error and warning](/reference/errors), with severity, source, offsets, and the offending snippet |
+| **Errors** | Every [compilation error and warning](/reference/errors), with severity, source, and offsets |
 | **Autocomplete** | The current completion index |
-| **Imports** | Cached import data |
+| **Imports** | The [import tree](/guide/imports#inspecting-imports) of the current recipe, nested by level |
 
 Debug mode also turns on a cursor tooltip in the editor, which is useful for
 seeing what the parser thinks is under the caret.

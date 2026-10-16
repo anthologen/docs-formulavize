@@ -86,6 +86,35 @@ A headless render takes its canvas fill from the recipe's own
 exported image matches what the recipe describes. See
 [Renderers](/guide/renderers#the-cytoscape-canvas).
 
+## Imports
+
+Node's fetch needs an absolute URL, so a recipe's `@ "lib.fiz"` cannot be
+resolved the way a browser resolves it against the page origin. Outside a
+browser the natural equivalent is the directory the recipe itself lives in, so
+the CLI reads relative imports from disk:
+
+| Location | Read from |
+|---|---|
+| `@ "lib.fiz"`, `@ "./sub/lib.fiz"` | Disk, relative to the directory of the input file |
+| `@ "/abs/path/lib.fiz"` | Disk, as given |
+| `@ "file:///abs/path/lib.fiz"` | Disk, as given |
+| `@ "https://host/lib.fiz"` | The network, with the same limits the app applies |
+
+The base directory is the input recipe's, for every import in the run. A
+package's own relative import is therefore resolved against the recipe that was
+run rather than against the file that declared it, so a package in a
+subdirectory cannot name its neighbours with paths relative to itself.
+
+A local file that cannot be read is reported like any other import failure:
+
+```text
+Compilation reported 1 issue(s):
+  [error] Import @0-11: Failed to read package from '/abs/path/lib.fiz': ENOENT: no such file or directory, open '/abs/path/lib.fiz'
+```
+
+See [Imports](/guide/imports) for the fetch limits, caching, and error codes
+that apply.
+
 ## Compilation Errors
 
 The CLI reports every issue the compiler found, with severity, source, and

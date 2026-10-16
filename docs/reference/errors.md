@@ -60,23 +60,34 @@ only reachable from outside through a qualified name. See
 
 | Code | Severity | Reported when |
 |---|---|---|
-| `IMP_FETCH_FAILED` | error | Any import failure, carrying the underlying reason |
+| `IMP_MISSING_EXTENSION` | error | The location's path does not end in `.fiz`: `Package '…' missing file extension .fiz`. Checked before any fetch, so no request is made. |
+| `IMP_FETCH_FAILED` | error | The request did not succeed, timed out, dropped mid-body, exceeded the size cap, or the CLI was given an unreadable local file |
+| `IMP_HTML_RESPONSE` | error | The response was `text/html`, usually a 404 page or a repository web page instead of a raw file: `Expected a fiz file but received HTML from '…'` |
+| `IMP_INVALID_CONTENT_TYPE` | error | The response's content type is not on the allow-list (`text/*`, `application/octet-stream`, `application/x-*`, or absent): `Expected a fiz file but received '…' from '…'` |
+| `IMP_CIRCULAR` | error | The location is already on the current import chain: `Circular import detected: …` |
 
-The messages distinguish the cases:
+`IMP_FETCH_FAILED` covers several messages, since every one of them is the
+transport failing to hand back a file:
 
 | Message | Cause |
 |---|---|
-| `Package '…' missing file extension .fiz` | The path does not end in `.fiz`, so no fetch is attempted |
-| `Failed to fetch package from '…': <status>` | The request did not succeed |
-| `Expected a fiz file but received HTML from '…'` | The response was `text/html`, usually a 404 page or a repository web page instead of a raw file |
-| `Circular import detected: …` | The file is already on the current import chain |
+| `Failed to fetch package from '…': <status>` | The request returned a non-OK status |
+| `Failed to fetch package from '…': timed out after 10000ms` | The 10-second deadline expired, waiting for either the headers or the body |
+| `Package '…' exceeds the 4194304 byte import limit` | The response was larger than the 4 MiB cap |
+| `Failed to read package from '…': <reason>` | The [CLI](/app/cli#imports) could not read a local file |
 
-::: info
-`IMP_CIRCULAR`, `IMP_MISSING_EXTENSION`, and `IMP_HTML_RESPONSE` exist in the
-error-code enum but are not attached to these cases. All four currently
-report as `IMP_FETCH_FAILED`. Match on the message, not the code, if you need to
-tell them apart.
-:::
+Every import failure is positioned on the import statement that caused it.
+
+An imported package that fetches but does not compile cleanly is a separate
+case, reported as a **warning** with no code:
+
+```text
+[warning] Import @0-9: Imported package 'p.fiz' reported 1 issue(s): Variable 'x' not found
+```
+
+The imported file's own diagnostics are not forwarded, because their offsets
+index that file rather than the lines present in the open document. See
+[Imports](/guide/imports#when-an-imported-package-has-errors).
 
 ## Internal Codes
 

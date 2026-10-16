@@ -44,6 +44,9 @@ rather than by a static word list:
 - **Directive keys** — the active renderer's directive vocabulary inside a
   `^<name>{ }` block, narrowed by the `layout` the block already declares
 - **About note names and keys** — offered after `~` and inside its block
+- **Imported names** — whatever an import brings into scope, offered the way
+  the import scopes it: unqualified for a merged import, under the alias for a
+  named one. See [Imports](/guide/imports#how-an-import-is-scoped).
 
 Because the suggestions come from the renderer, a `^cytoscape{ layout: "elk" }`
 block offers ELK's options while a `layout: "dagre"` block offers dagre's. See

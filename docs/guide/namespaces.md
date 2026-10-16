@@ -14,6 +14,9 @@ pipeline[
 ]
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-01.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-01.dark.svg" alt="Rendered graph for the recipe above">
+
 This creates a compound node `pipeline` holding the nodes its calls create
 (`f` and `g`) and the edge between them. In the visualization, those nodes are
 drawn inside the `pipeline` box.
@@ -34,6 +37,9 @@ pipeline[
 ](d)
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-02.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-02.dark.svg" alt="Rendered graph for the recipe above">
+
 The edge runs from `load` **to the `pipeline` compound node itself** where the
 box is the endpoint. A namespaces's argument does not reach in and attach to a
 particular node inside.
@@ -48,6 +54,9 @@ pipeline[
 ](){ background-color: #eeeeff }
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-03.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-03.dark.svg" alt="Rendered graph for the recipe above">
+
 The empty `()` can be omitted if you only need styling:
 
 ```
@@ -55,6 +64,9 @@ pipeline[
   a = f()
 ]{ background-color: #eeeeff }
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-04.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-04.dark.svg" alt="Rendered graph for the recipe above">
 
 A `*subgraph` [global style binding](/guide/styling#global-style-bindings)
 styles every compound node at once.
@@ -69,6 +81,9 @@ Omit the name for an unnamed grouping:
   b = g(a)
 ]
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-05.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-05.dark.svg" alt="Rendered graph for the recipe above">
 
 An anonymous namespace still creates a compound node, but with no name it has
 nothing for a qualified reference to address, so nothing outside can reach into
@@ -87,6 +102,9 @@ ns[
 // Access from outside:
 final = consume(ns.result)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-06.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-06.dark.svg" alt="Rendered graph for the recipe above">
 
 Unlike an argument into a namespace, a qualified reference reaches **the inner
 node**: the edge here runs `process → consume`, crossing the namespace boundary
@@ -111,6 +129,9 @@ outer[
 ]
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-07.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-07.dark.svg" alt="Rendered graph for the recipe above">
+
 The `f → g` edge crosses out of `inner` while both nodes stay inside `outer`.
 
 ## Assigning Namespaces
@@ -126,6 +147,9 @@ result = pipeline[
 
 q(result)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-08.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-08.dark.svg" alt="Rendered graph for the recipe above">
 
 `result` refers to the `pipeline` box, so `q(result)` draws an edge from the box
 to `q`.

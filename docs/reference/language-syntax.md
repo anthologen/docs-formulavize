@@ -88,6 +88,9 @@ b = g(a)
 x = load(); a = f(x); b = g(a)
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/reference/language-syntax/fig-01.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/reference/language-syntax/fig-01.dark.svg" alt="Rendered graph for the recipe above">
+
 ## Literals
 
 ### Strings
@@ -164,6 +167,9 @@ and several lines in a single block get joined with newlines:
 x = load()
 f(x){ "A description" }
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/reference/language-syntax/fig-02.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/reference/language-syntax/fig-02.dark.svg" alt="Rendered graph for the recipe above">
 
 ### Semicolons Inside a Style Block
 

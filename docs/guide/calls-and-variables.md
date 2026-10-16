@@ -17,6 +17,9 @@ exactly one node in the DAG.
 f()
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-01.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-01.dark.svg" alt="Rendered graph for the recipe above">
+
 Above is a complete recipe: one node named `f`, no edges.
 
 ### Arguments
@@ -29,6 +32,9 @@ edge into the call's node.
 x = load()
 f(x)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-02.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-02.dark.svg" alt="Rendered graph for the recipe above">
 
 This creates two nodes, `load` and `f`, and one edge `load → f`.
 
@@ -49,6 +55,9 @@ b = fetch()
 f(a, b)
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-03.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-03.dark.svg" alt="Rendered graph for the recipe above">
+
 This draws `load → f` and `fetch → f`.
 
 ### Nested Calls
@@ -60,6 +69,9 @@ edge from it:
 x = p()
 f(g(x))
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-04.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-04.dark.svg" alt="Rendered graph for the recipe above">
 
 This creates `p`, `g`, and `f`, with edges `p → g` and `g → f`. An edge from a
 nested call is unnamed, because no variable carries it.
@@ -73,6 +85,9 @@ x = load()
 f(x){ background-color: #cc4444 }
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-05.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-05.dark.svg" alt="Rendered graph for the recipe above">
+
 See [Styling](/guide/styling) for full details.
 
 ## Assignments
@@ -85,6 +100,9 @@ x = load()
 y = f(x)
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-06.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-06.dark.svg" alt="Rendered graph for the recipe above">
+
 An assignment creates **no node and no edge of its own**. The name on the left
 becomes another way to refer to the node the right-hand side produced, so this
 recipe has two nodes (`load`, `f`) and one edge (`load → f`). The name `y` is
@@ -95,6 +113,9 @@ x = load()
 y = f(x)
 z = g(y)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-07.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-07.dark.svg" alt="Rendered graph for the recipe above">
 
 That last line adds the node `g` and the edge `f → g`. The whole recipe is three
 nodes and two edges. There is one node per call and one edge per variable used.
@@ -111,6 +132,9 @@ q(a)
 r(b)
 ```
 
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-08.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-08.dark.svg" alt="Rendered graph for the recipe above">
+
 `a` and `b` both name the `process` node, so this draws `process → q` and
 `process → r`. Repeating a name on one left-hand side is a warning
 (`SYN_DUPLICATE_LHS_NAME`).
@@ -126,6 +150,9 @@ a{ line-color: #ff0000 }, b = process(d)
 q(a)   // this edge is red
 r(b)   // this edge is not
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-09.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-09.dark.svg" alt="Rendered graph for the recipe above">
 
 To style the node instead, put the style on the call that creates it.
 
@@ -167,3 +194,6 @@ semicolons:
 ```
 x = load(); a = f(x); b = g(a)
 ```
+
+<img class="fiz-figure fiz-figure-light" src="/img/guide/calls-and-variables/fig-10.light.svg" alt="Rendered graph for the recipe above">
+<img class="fiz-figure fiz-figure-dark" src="/img/guide/calls-and-variables/fig-10.dark.svg" alt="Rendered graph for the recipe above">

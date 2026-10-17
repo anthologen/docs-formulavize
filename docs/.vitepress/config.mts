@@ -8,6 +8,10 @@ export default defineConfig({
     ['link', { rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' }],
   ],
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
+
     logo: '/formulavize_logo.svg',
     nav: [
       { text: 'Guide', link: '/guide/calls-and-variables' },

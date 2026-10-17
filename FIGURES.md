@@ -33,15 +33,18 @@ one.
 
 ## Embedding
 
-Images are embedded directly after the closing fence as two raw `<img>` tags:
+Images are embedded directly after the closing fence as a markdown pair, one
+per theme:
 
-```html
-<img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-01.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/styling/fig-01.dark.svg" alt="Rendered graph for the recipe above">
+```md
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
 ```
 
-Raw HTML rather than `![](…){.light-only}`: VitePress 2.0.0-alpha.20 does not
-bundle `markdown-it-attrs`, so the attribute syntax renders as literal text.
+The `{.class}` attribute syntax comes from `@mdit/plugin-attrs`, which VitePress
+bundles and enables by default (the `markdown.attrs` config option). Note that
+the plugin's `fence` rule is off by default, so curly attributes work on inline
+images like these but not on code blocks.
 
 The three classes are defined in `docs/.vitepress/theme/custom.css`, which is
 the only reason `docs/.vitepress/theme/` exists — the site otherwise uses the

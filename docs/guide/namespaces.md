@@ -14,8 +14,8 @@ prep[
 ]
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-01.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-01.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-01.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
 
 This creates a compound node `prep` holding the nodes its calls create
 (`mix` and `knead`) and the edge between them. In the visualization, those
@@ -37,8 +37,8 @@ prep[
 ](d)
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-02.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-02.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-02.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
 
 The edge runs from `fetch` **to the `prep` compound node itself** where the
 box is the endpoint. A namespaces's argument does not reach in and attach to a
@@ -54,8 +54,8 @@ prep[
 ](){ background-color: "wheat" }
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-03.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-03.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-03.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-03.dark.svg){.fiz-figure .fiz-figure-dark}
 
 The empty `()` can be omitted if you only need styling:
 
@@ -65,8 +65,8 @@ prep[
 ]{ background-color: "wheat" }
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-04.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-04.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-04.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-04.dark.svg){.fiz-figure .fiz-figure-dark}
 
 A `*subgraph` [global style binding](/guide/styling#global-style-bindings)
 styles every compound node at once.
@@ -82,8 +82,8 @@ Omit the name for an unnamed grouping:
 ]
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-05.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-05.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-05.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-05.dark.svg){.fiz-figure .fiz-figure-dark}
 
 An anonymous namespace still creates a compound node, but with no name it has
 nothing for a qualified reference to address, so nothing outside can reach into
@@ -103,8 +103,8 @@ fryer[
 plain = cool(fryer.donut)
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-06.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-06.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-06.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-06.dark.svg){.fiz-figure .fiz-figure-dark}
 
 Unlike an argument into a namespace, a qualified reference reaches **the inner
 node**: the edge here runs `fry → cool`, crossing the namespace boundary
@@ -129,8 +129,8 @@ outer[
 ]
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-07.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-07.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-07.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-07.dark.svg){.fiz-figure .fiz-figure-dark}
 
 The `f → g` edge crosses out of `inner` while both nodes stay inside `outer`.
 
@@ -148,8 +148,8 @@ batch = prep[
 fry(batch)
 ```
 
-<img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-08.light.svg" alt="Rendered graph for the recipe above">
-<img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-08.dark.svg" alt="Rendered graph for the recipe above">
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-08.light.svg){.fiz-figure .fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/namespaces/fig-08.dark.svg){.fiz-figure .fiz-figure-dark}
 
 `batch` refers to the `prep` box, so `fry(batch)` draws an edge from the box
 to `fry`.

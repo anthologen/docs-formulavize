@@ -81,7 +81,7 @@ pixel-identical to what the app draws at an arbitrary window size.
 
 ## Figures with a Prelude
 
-Two blocks in `guide/styling.md` apply the `#important` tag that the block above
+Two blocks in `guide/styling.md` apply the `#finish` tag that the block above
 them defines, so they do not compile alone. Their figures are rendered from a
 temporary file with that definition prepended. **The page source is unchanged** —
 the prelude exists only to render what a reader already understands to be in

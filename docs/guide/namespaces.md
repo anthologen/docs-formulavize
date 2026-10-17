@@ -8,21 +8,21 @@ give both scope isolation and visual hierarchy in the rendered DAG.
 Wrap statements in square brackets with a name:
 
 ```
-pipeline[
-  a = f()
-  b = g(a)
+prep[
+  a = mix()
+  b = knead(a)
 ]
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-01.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-01.dark.svg" alt="Rendered graph for the recipe above">
 
-This creates a compound node `pipeline` holding the nodes its calls create
-(`f` and `g`) and the edge between them. In the visualization, those nodes are
-drawn inside the `pipeline` box.
+This creates a compound node `prep` holding the nodes its calls create
+(`mix` and `knead`) and the edge between them. In the visualization, those
+nodes are drawn inside the `prep` box.
 
-As everywhere else, only calls create nodes: `a` and `b` are names for `f`'s and
-`g`'s nodes, and `a` is what draws the `f → g` edge. See
+As everywhere else, only calls create nodes: `a` and `b` are names for `mix`'s
+and `knead`'s nodes, and `a` is what draws the `mix → knead` edge. See
 [Calls & Variables](/guide/calls-and-variables).
 
 ## Namespaces with Arguments
@@ -31,16 +31,16 @@ Pass arguments into a namespace by adding an argument list after the closing
 bracket:
 
 ```
-d = load()
-pipeline[
-  a = f()
+d = fetch()
+prep[
+  a = knead()
 ](d)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-02.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-02.dark.svg" alt="Rendered graph for the recipe above">
 
-The edge runs from `load` **to the `pipeline` compound node itself** where the
+The edge runs from `fetch` **to the `prep` compound node itself** where the
 box is the endpoint. A namespaces's argument does not reach in and attach to a
 particular node inside.
 
@@ -49,9 +49,9 @@ particular node inside.
 Apply styles to the compound node itself:
 
 ```
-pipeline[
-  a = f()
-](){ background-color: #eeeeff }
+prep[
+  a = knead()
+](){ background-color: "wheat" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-03.light.svg" alt="Rendered graph for the recipe above">
@@ -60,9 +60,9 @@ pipeline[
 The empty `()` can be omitted if you only need styling:
 
 ```
-pipeline[
-  a = f()
-]{ background-color: #eeeeff }
+prep[
+  a = knead()
+]{ background-color: "wheat" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-04.light.svg" alt="Rendered graph for the recipe above">
@@ -77,8 +77,8 @@ Omit the name for an unnamed grouping:
 
 ```
 [
-  a = f()
-  b = g(a)
+  a = mix()
+  b = knead(a)
 ]
 ```
 
@@ -95,25 +95,25 @@ Variables defined inside a namespace are **scoped** to that namespace. Access
 them from outside with a qualified name:
 
 ```
-ns[
-  result = process()
+fryer[
+  donut = fry()
 ]
 
 // Access from outside:
-final = consume(ns.result)
+plain = cool(fryer.donut)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-06.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-06.dark.svg" alt="Rendered graph for the recipe above">
 
 Unlike an argument into a namespace, a qualified reference reaches **the inner
-node**: the edge here runs `process → consume`, crossing the namespace boundary
+node**: the edge here runs `fry → cool`, crossing the namespace boundary
 rather than stopping at the box.
 
 Referencing a name that the namespace does not define reports
 `REF_VAR_NOT_FOUND`.
 
-Style tags are scoped the same way, and are referenced as `#ns.tagName` — see
+Style tags are scoped the same way, and are referenced as `#fryer.tagName` — see
 [Qualified Style Tags](/guide/styling#qualified-style-tags).
 
 ## Nesting Namespaces
@@ -140,19 +140,19 @@ A namespace can appear on the right-hand side of an assignment, which names the
 **compound node**:
 
 ```
-d = load()
-result = pipeline[
-  a = f()
+d = fetch()
+batch = prep[
+  a = knead()
 ](d)
 
-q(result)
+fry(batch)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/namespaces/fig-08.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/guide/namespaces/fig-08.dark.svg" alt="Rendered graph for the recipe above">
 
-`result` refers to the `pipeline` box, so `q(result)` draws an edge from the box
-to `q`.
+`batch` refers to the `prep` box, so `fry(batch)` draws an edge from the box
+to `fry`.
 
 Assigning a namespace to a variable is the only way to pass it as an argument
 to a call. The fiz language intentionally disallows namespaces to be passed

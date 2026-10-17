@@ -28,16 +28,16 @@ Use **assignments** to name a call's node, then pass that name to another call
 to draw an edge:
 
 ```
-x = load()
-y = f(x)
-z = g(y)
+a = rinse()
+b = dry(a)
+c = chop(b)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/getting-started/fig-02.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/getting-started/fig-02.dark.svg" alt="Rendered graph for the recipe above">
 
-This is three nodes (`load`, `f`, `g`) and two edge (`load → f → g`). The
-names `x`, `y`, and `z` are not nodes: an assignment just names the node created
+This is three nodes (`rinse`, `dry`, `chop`) and two edge
+(`rinse → dry → chop`). The names `a`, `b`, and `c` are not nodes: an assignment just names the node created
 by its right-hand side. Edges are drawn to the name's referent node.
 
 An argument always refers to something already bound, so a name has to be
@@ -46,16 +46,16 @@ assigned before a call can use it.
 Referencing a variable more than once fans out from the same node:
 
 ```
-data = load()
-a = process(data)
-b = analyze(data)
-result = combine(a, b)
+butter = fetch()
+m = melt(butter)
+r = rest(butter)
+partial = combine(m, r)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/getting-started/fig-03.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/getting-started/fig-03.dark.svg" alt="Rendered graph for the recipe above">
 
-Here `load` feeds both `process` and `analyze`, which both feed `combine`.
+Here `fetch` feeds both `melt` and `rest`, which both feed `combine`.
 
 ## Adding Style
 
@@ -63,8 +63,8 @@ Give nodes a visual identity with **inline styles**. A style block on a call
 styles the node that call creates:
 
 ```
-x = load()
-y = f(x){ background-color: #80ebff }
+x = pour()
+y = chill(x){ background-color: #80ebff }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/getting-started/fig-04.light.svg" alt="Rendered graph for the recipe above">
@@ -73,9 +73,9 @@ y = f(x){ background-color: #80ebff }
 Or define a reusable **style tag** and apply it:
 
 ```
-#highlight { background-color: #80ebff; border-width: 2 }
-x = load()
-y = f(x){ #highlight }
+#highlight { background-color: #80ebff; shape: "diamond" }
+x = pour()
+y = chill(x){ #highlight }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/getting-started/fig-05.light.svg" alt="Rendered graph for the recipe above">
@@ -84,9 +84,9 @@ y = f(x){ #highlight }
 A style block on an assigned **name** styles the edges that name draws instead:
 
 ```
-x = load()
-y{ line-color: "red" } = f(x)
-g(y) // this edge is red
+x = pour()
+y{ line-color: "red" } = drip(x)
+chill(y) // this edge is red
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/getting-started/fig-06.light.svg" alt="Rendered graph for the recipe above">

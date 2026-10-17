@@ -26,8 +26,8 @@ is useful for seeing the compiled DAG summarized in text:
 ```
 ^minimal{ }
 
-x = load()
-y = f(x)
+x = f()
+y = g(x)
 ```
 
 ### Resolution Rules
@@ -139,10 +139,10 @@ statements appear in the recipe.
   rankSep: 80
 }
 
-x = load()
-a = clean(x)
-b = verify(x)
-y = merge(a, b)
+t = fetch()
+p = purée(t)
+d = dice(t)
+r = combine(p, d)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-01.light.svg" alt="Rendered graph for the recipe above">
@@ -159,10 +159,10 @@ Cytoscape's built-in breadthfirst layout.
   spacingFactor: 2.5
 }
 
-x = load()
-a = clean(x)
-b = verify(x)
-y = merge(a, b)
+t = fetch()
+p = purée(t)
+d = dice(t)
+r = combine(p, d)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-02.light.svg" alt="Rendered graph for the recipe above">
@@ -187,10 +187,10 @@ fiz property name cannot contain `.`, so they are written with dashes
   elk-spacing-nodeNode: 40
 }
 
-x = load()
-a = clean(x)
-b = verify(x)
-y = merge(a, b)
+t = fetch()
+p = purée(t)
+d = dice(t)
+r = combine(p, d)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/renderers/fig-03.light.svg" alt="Rendered graph for the recipe above">
@@ -209,9 +209,10 @@ recomputed.
 ```
 ^cytoscape{ layout: "manual" }
 
-x = load()
-y = f(x)
-z = g(y)
+t = fetch()
+p = purée(t)
+d = dice(t)
+r = combine(p, d)
 ```
 
 The viewport is deliberately not refitted on every edit, so changing the recipe

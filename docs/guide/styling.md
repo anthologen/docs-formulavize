@@ -10,8 +10,8 @@ Apply styles directly with curly braces. **What a style block targets depends on
 where it sits**, because a call is a node and a variable is an edge:
 
 ```
-x = load()
-f(x){ background-color: #cc4444; border-width: 3 }   // styles the f node
+x = f()
+g(x){ background-color: #cc4444; shape: "square" }   // styles the g node
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-01.light.svg" alt="Rendered graph for the recipe above">
@@ -21,9 +21,9 @@ On an assignment's left-hand side, the block styles the **edges that name
 draws** rather than a node:
 
 ```
-x = load()
-result{ line-color: #cc4444 } = f(x)
-g(result)   // this edge is red
+x = f()
+y{ line-color: #cc4444 } = g(x)
+h(y)   // this edge is red
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-02.light.svg" alt="Rendered graph for the recipe above">
@@ -42,15 +42,15 @@ last value will be applied.
 Define a **named style tag** with `#` and reuse it across multiple elements:
 
 ```
-#important {
+#finish {
   background-color: #ffcc00
   border-width: 4
   border-color: #ff8800
 }
 
-x = load()
-a = f(x){ #important }
-b = g(x){ #important }
+d = rest()
+a = glaze(d){ #finish }
+b = coat(d){ #finish }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-03.light.svg" alt="Rendered graph for the recipe above">
@@ -61,8 +61,8 @@ b = g(x){ #important }
 Reference a style tag inside any style block with `#name`:
 
 ```
-data = load()
-result = process(data){ #important }
+d = rest()
+donut = dip(d){ #finish }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-04.light.svg" alt="Rendered graph for the recipe above">
@@ -72,8 +72,8 @@ You can mix style tags with inline properties. Tags apply in declaration order,
 and inline properties win over all of them:
 
 ```
-data = load()
-result = process(data){ #important shape: "diamond" }
+d = rest()
+donut = dip(d){ #finish shape: "diamond" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-05.light.svg" alt="Rendered graph for the recipe above">
@@ -81,8 +81,8 @@ result = process(data){ #important shape: "diamond" }
 
 ::: warning
 A semicolon may only follow a **declaration**, never a style tag or a bare
-string. `{ #important shape: "diamond" }` parses; `{ #important; shape: … }`
-does not. Putting the tag last works too: `{ shape: "diamond"; #important }`.
+string. `{ #finish shape: "diamond" }` parses; `{ #finish; shape: … }`
+does not. Putting the tag last works too: `{ shape: "diamond"; #finish }`.
 :::
 
 Referencing a tag that nothing declares in scope reports
@@ -94,11 +94,11 @@ Inside namespaces, style tags can be referenced with qualified names:
 
 ```
 ns[
-  #local { background-color: #aaccff }
+  #local { background-color: "gold" }
 ]
 
 // From outside:
-x{ #ns.local } = f()
+x = f(){ #ns.local }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-06.light.svg" alt="Rendered graph for the recipe above">
@@ -110,17 +110,17 @@ A **style binding** with `%` applies styles to all elements whose **name**
 matches the keyword:
 
 ```
-%load { background-color: #88cc88 }
-%process { background-color: #8888cc }
+%rest { background-color: #88cc88 }
+%dip { background-color: #8888cc }
 
-y = load()
-z = process(y)
+d = rest()
+g = dip(d)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-07.light.svg" alt="Rendered graph for the recipe above">
 <img class="fiz-figure fiz-figure-dark" src="/img/guide/styling/fig-07.dark.svg" alt="Rendered graph for the recipe above">
 
-Every node named `load` gets a green background. Every node named `process` gets
+Every node named `rest` gets a green background. Every node named `dip` gets
 a blue background.
 
 Edges also carry names from the variable that drew it so a binding can
@@ -129,8 +129,8 @@ target edges as well:
 ```
 %raw { line-color: #cc8888 }
 
-raw = load()
-process(raw)   // this edge is pink
+raw = cut()
+fry(raw)   // this edge is pink
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-08.light.svg" alt="Rendered graph for the recipe above">
@@ -140,7 +140,7 @@ Binding blocks accept style tags as well as inline properties:
 
 ```
 #rounded { shape: "round-rectangle" }
-%output { #rounded font-size: 10 }
+%serve { #rounded font-size: 10 }
 ```
 
 ## Global Style Bindings
@@ -169,8 +169,8 @@ Any other keyword reports `SYN_INVALID_GLOBAL_STYLE_KEYWORD`.
 The `description` property attaches explanatory text to an element:
 
 ```
-x = source()
-f(x){ description: "This node loads the data" }
+x = cut()
+fry(x){ description: "90 seconds a side" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-09.light.svg" alt="Rendered graph for the recipe above">
@@ -180,8 +180,8 @@ They work on nodes, edges, and namespace (compound) nodes, and can be attached
 through any styling level — inline, a style tag, or a name binding:
 
 ```
-#documented { description: "Documented step" }
-%load { description: "Reads from disk" }
+#timed { description: "Watch the clock" }
+%fry { description: "Hot oil, 190°C" }
 ```
 
 ### Description Shorthand
@@ -190,8 +190,8 @@ A bare string literal in a style block *is* a description, which is usually
 easier to read than spelling out the property:
 
 ```
-x = source()
-f(x){ "This node loads the data" }
+x = cut()
+fry(x){ "90 seconds a side" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/guide/styling/fig-10.light.svg" alt="Rendered graph for the recipe above">
@@ -201,10 +201,10 @@ Several strings in one block join with newlines, which is a convenient way to
 write multi-line text:
 
 ```
-x = source()
-f(x){
-  "Loads the data."
-  "Fails loudly if the file is missing."
+x = cut()
+fry(x){
+  "90 seconds a side"
+  "Burns fast if you look away"
 }
 ```
 
@@ -217,8 +217,8 @@ Every label-styling property has a `description-` prefixed counterpart that
 styles the description text independent of the element's own label:
 
 ```
-x = source()
-f(x){
+x = cut()
+fry(x){
   "A well-dressed description"
   description-font-size: 14
   description-color: #333333

@@ -60,8 +60,8 @@ Dump the DAG as text with the `minimal` renderer, selected by the recipe itself:
 ```
 // summary.fiz
 ^minimal{ }
-x = load()
-y = f(x)
+x = f()
+y = g(x)
 ```
 
 ```sh

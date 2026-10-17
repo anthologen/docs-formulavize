@@ -15,10 +15,10 @@ the graph, and it produces no nodes, edges, or styling.
 The name is optional. An unnamed note is keyed by the empty string:
 
 ```
-~{ "A recipe that does nothing in particular" }
+~{ "Making donuts with Blender" }
 
 ~about{
-  title: "Cubic Pipeline"
+  title: "Donuts"
   version: 2
 }
 ```

@@ -9,21 +9,21 @@ Quick-reference for all fiz language constructs.
 | Call | `name(args)` | `f(x, y)` |
 | Call with style | `name(args){ styles }` | `f(x){ color: #f00 }` |
 | Assignment | `lhs = rhs` | `y = f(x)` |
-| Multi-assignment | `a, b = rhs` | `a, b = split(data)` |
+| Multi-assignment | `a, b = rhs` | `a, b = split(eggs)` |
 | Styled LHS | `name{ styles } = rhs` | `y{ shape: "diamond" } = f(x)` |
 | Bare variable | `name` | `y` |
-| Qualified variable | `name.name` | `ns.result` |
-| Namespace | `name[ stmts ]` | `pipe[ y = f(x) ]` |
-| Namespace + args | `name[ stmts ](args)` | `pipe[ y = f(x) ](data)` |
-| Namespace + style | `name[ stmts ]{ styles }` | `pipe[ y = f(x) ]{ color: #eef }` |
+| Qualified variable | `name.name` | `ns.var` |
+| Namespace | `name[ stmts ]` | `prep[ y = f(x) ]` |
+| Namespace + args | `name[ stmts ](args)` | `prep[ y = f(x) ](flour)` |
+| Namespace + style | `name[ stmts ]{ styles }` | `prep[ y = f(x) ]{ color: #eef }` |
 | Anonymous namespace | `[ stmts ]` | `[ a = f(x) ]` |
 | Import | `@ "path.fiz"` | `@ "./lib.fiz"` |
 | Named import | `name @ "path.fiz"` | `lib @ "./lib.fiz"` |
 | Assigned import | `lhs = name @ "path.fiz"` | `x = lib @ "./lib.fiz"` |
-| Style tag declaration | `#name { styles }` | `#bold { border-width: 4 }` |
-| Style tag reference | `#name` | `f(x){ #bold }` |
-| Qualified style tag | `#ns.name` | `f(x){ #ns.bold }` |
-| Style binding | `%keyword { styles }` | `%load { color: #0a0 }` |
+| Style tag declaration | `#name { styles }` | `#finish { border-width: 4 }` |
+| Style tag reference | `#name` | `f(x){ #finish }` |
+| Qualified style tag | `#ns.name` | `f(x){ #ns.finish }` |
+| Style binding | `%keyword { styles }` | `%rest { color: #0a0 }` |
 | Global style binding | `*keyword { styles }` | `*node { color: #eee }` |
 | Renderer directive | `^name { keys }` | `^cytoscape{ layout: "elk" }` |
 | About note | `~name { keys }` | `~author{ name: "Ada" }` |
@@ -81,11 +81,11 @@ so explicit semicolons are only needed for multiple statements on one line:
 
 ```
 // These are equivalent:
-x = load()
-a = f(x)
-b = g(a)
+dough = knead()
+loaf = shape(dough)
+bread = bake(loaf)
 
-x = load(); a = f(x); b = g(a)
+dough = knead(); loaf = shape(dough); bread = bake(loaf)
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/reference/language-syntax/fig-01.light.svg" alt="Rendered graph for the recipe above">
@@ -164,8 +164,8 @@ A bare string literal in a block is shorthand for the `description` property,
 and several lines in a single block get joined with newlines:
 
 ```
-x = load()
-f(x){ "A description" }
+x = cut()
+fry(x){ "90 seconds a side" }
 ```
 
 <img class="fiz-figure fiz-figure-light" src="/img/reference/language-syntax/fig-02.light.svg" alt="Rendered graph for the recipe above">

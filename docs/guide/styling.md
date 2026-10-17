@@ -14,8 +14,8 @@ x = f()
 g(x){ background-color: #cc4444; shape: "square" }   // styles the g node
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.dark.svg){.fiz-figure-dark}
 
 On an assignment's left-hand side, the block styles the **edges that name
 draws** rather than a node:
@@ -26,8 +26,8 @@ y{ line-color: #cc4444 } = g(x)
 h(y)   // this edge is red
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-02.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-02.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-02.dark.svg){.fiz-figure-dark}
 
 To style a node, put the block on the call that creates it. See
 [Calls & Variables](/guide/calls-and-variables#styling-on-lhs-variables).
@@ -53,8 +53,8 @@ a = glaze(d){ #finish }
 b = coat(d){ #finish }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-03.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-03.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-03.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-03.dark.svg){.fiz-figure-dark}
 
 ### Applying Style Tags
 
@@ -65,8 +65,8 @@ d = rest()
 donut = dip(d){ #finish }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-04.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-04.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-04.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-04.dark.svg){.fiz-figure-dark}
 
 You can mix style tags with inline properties. Tags apply in declaration order,
 and inline properties win over all of them:
@@ -76,8 +76,8 @@ d = rest()
 donut = dip(d){ #finish shape: "diamond" }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-05.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-05.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-05.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-05.dark.svg){.fiz-figure-dark}
 
 ::: warning
 A semicolon may only follow a **declaration**, never a style tag or a bare
@@ -101,8 +101,8 @@ ns[
 x = f(){ #ns.local }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-06.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-06.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-06.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-06.dark.svg){.fiz-figure-dark}
 
 ## Style Bindings
 
@@ -117,8 +117,8 @@ d = rest()
 g = dip(d)
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-07.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-07.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-07.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-07.dark.svg){.fiz-figure-dark}
 
 Every node named `rest` gets a green background. Every node named `dip` gets
 a blue background.
@@ -133,8 +133,8 @@ raw = cut()
 fry(raw)   // this edge is pink
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-08.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-08.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-08.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-08.dark.svg){.fiz-figure-dark}
 
 Binding blocks accept style tags as well as inline properties:
 
@@ -173,8 +173,8 @@ x = cut()
 fry(x){ description: "90 seconds a side" }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-09.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-09.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-09.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-09.dark.svg){.fiz-figure-dark}
 
 They work on nodes, edges, and namespace (compound) nodes, and can be attached
 through any styling level — inline, a style tag, or a name binding:
@@ -194,8 +194,8 @@ x = cut()
 fry(x){ "90 seconds a side" }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-10.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-10.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-10.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-10.dark.svg){.fiz-figure-dark}
 
 Several strings in one block join with newlines, which is a convenient way to
 write multi-line text:
@@ -208,8 +208,8 @@ fry(x){
 }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-11.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-11.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-11.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-11.dark.svg){.fiz-figure-dark}
 
 ### Styling Description Text
 
@@ -226,8 +226,8 @@ fry(x){
 }
 ```
 
-![Rendered graph for the recipe above](/img/guide/styling/fig-12.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-12.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-12.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-12.dark.svg){.fiz-figure-dark}
 
 See [Style Properties](/reference/style-properties#description-properties) for
 the full list. `description-text-halign` and `description-text-valign` do not

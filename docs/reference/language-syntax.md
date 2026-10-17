@@ -88,8 +88,8 @@ bread = bake(loaf)
 dough = knead(); loaf = shape(dough); bread = bake(loaf)
 ```
 
-![Rendered graph for the recipe above](/img/reference/language-syntax/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/reference/language-syntax/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/reference/language-syntax/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/reference/language-syntax/fig-01.dark.svg){.fiz-figure-dark}
 
 ## Literals
 
@@ -168,8 +168,8 @@ x = cut()
 fry(x){ "90 seconds a side" }
 ```
 
-![Rendered graph for the recipe above](/img/reference/language-syntax/fig-02.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/reference/language-syntax/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/reference/language-syntax/fig-02.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/reference/language-syntax/fig-02.dark.svg){.fiz-figure-dark}
 
 ### Semicolons Inside a Style Block
 

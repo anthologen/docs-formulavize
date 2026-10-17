@@ -13,9 +13,3 @@ html:not(.dark) .fiz-figure-dark {
 html.dark .fiz-figure-light {
   display: none;
 }
-
-.fiz-figure {
-  display: block;
-  margin: 1rem 0 1.5rem;
-  max-width: 100%;
-}

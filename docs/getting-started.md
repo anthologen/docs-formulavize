@@ -17,8 +17,8 @@ The simplest fiz program is a single call:
 f()
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-01.dark.svg){.fiz-figure-dark}
 
 That is a complete recipe: one node, named `f`. **Every call creates a node.**
 
@@ -33,8 +33,8 @@ b = dry(a)
 c = chop(b)
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-02.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-02.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-02.dark.svg){.fiz-figure-dark}
 
 This is three nodes (`rinse`, `dry`, `chop`) and two edge
 (`rinse → dry → chop`). The names `a`, `b`, and `c` are not nodes: an assignment just names the node created
@@ -52,8 +52,8 @@ r = rest(butter)
 partial = combine(m, r)
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-03.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-03.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-03.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-03.dark.svg){.fiz-figure-dark}
 
 Here `fetch` feeds both `melt` and `rest`, which both feed `combine`.
 
@@ -67,8 +67,8 @@ x = pour()
 y = chill(x){ background-color: #80ebff }
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-04.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-04.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-04.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-04.dark.svg){.fiz-figure-dark}
 
 Or define a reusable **style tag** and apply it:
 
@@ -78,8 +78,8 @@ x = pour()
 y = chill(x){ #highlight }
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-05.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-05.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-05.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-05.dark.svg){.fiz-figure-dark}
 
 A style block on an assigned **name** styles the edges that name draws instead:
 
@@ -89,8 +89,8 @@ y{ line-color: "red" } = drip(x)
 chill(y) // this edge is red
 ```
 
-![Rendered graph for the recipe above](/img/getting-started/fig-06.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/getting-started/fig-06.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/getting-started/fig-06.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/getting-started/fig-06.dark.svg){.fiz-figure-dark}
 
 Note that keyword values are strings (e.g. `shape: "diamond"`, not `shape: diamond`).
 

@@ -145,8 +145,8 @@ d = dice(t)
 r = combine(p, d)
 ```
 
-![Rendered graph for the recipe above](/img/guide/renderers/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/renderers/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-01.dark.svg){.fiz-figure-dark}
 
 ### breadthfirst
 
@@ -165,8 +165,8 @@ d = dice(t)
 r = combine(p, d)
 ```
 
-![Rendered graph for the recipe above](/img/guide/renderers/fig-02.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/renderers/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-02.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-02.dark.svg){.fiz-figure-dark}
 
 ::: warning
 `breadthfirst` ignores compound parents. A recipe that uses namespaces will draw
@@ -193,8 +193,8 @@ d = dice(t)
 r = combine(p, d)
 ```
 
-![Rendered graph for the recipe above](/img/guide/renderers/fig-03.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/renderers/fig-03.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-03.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/renderers/fig-03.dark.svg){.fiz-figure-dark}
 
 Any `elk-*` key not in the documented list is passed straight through with the
 same dash-to-dot rewriting, which keeps the whole ELK option namespace reachable.

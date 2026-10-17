@@ -17,8 +17,8 @@ exactly one node in the DAG.
 f()
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-01.dark.svg){.fiz-figure-dark}
 
 Above is a complete recipe: one node named `f`, no edges.
 
@@ -33,8 +33,8 @@ x = f()
 g(x)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-02.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-02.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-02.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-02.dark.svg){.fiz-figure-dark}
 
 This creates two nodes, `f` and `g`, and one edge `f → g`.
 
@@ -55,8 +55,8 @@ s = get_sugar()
 cream(b, s)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-03.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-03.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-03.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-03.dark.svg){.fiz-figure-dark}
 
 This draws `get_butter → cream` and `get_sugar → cream`.
 
@@ -70,8 +70,8 @@ g = gather()
 rinse(dry(g))
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-04.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-04.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-04.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-04.dark.svg){.fiz-figure-dark}
 
 This creates `gather`, `dry`, and `rinse`, with edges `gather → dry` and
 `dry → rinse`. An edge from a nested call is unnamed, because no variable
@@ -86,8 +86,8 @@ m = mix()
 bake(m){ background-color: #cc4444 }
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-05.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-05.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-05.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-05.dark.svg){.fiz-figure-dark}
 
 See [Styling](/guide/styling) for full details.
 
@@ -101,8 +101,8 @@ x = mix()
 y = bake(x)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-06.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-06.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-06.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-06.dark.svg){.fiz-figure-dark}
 
 An assignment creates **no node and no edge of its own**. The name on the left
 becomes another way to refer to the node the right-hand side produced, so this
@@ -115,8 +115,8 @@ y = fry(x)
 z = stir(y)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-07.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-07.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-07.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-07.dark.svg){.fiz-figure-dark}
 
 That last line adds the node `stir` and the edge `fry → stir`. The whole recipe is three
 nodes and two edges. There is one node per call and one edge per variable used.
@@ -133,8 +133,8 @@ whip(whites)
 rest(yolks)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-08.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-08.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-08.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-08.dark.svg){.fiz-figure-dark}
 
 `whites` and `yolks` both name the `split` node, so this draws `split → whip`
 and `split → rest`. Repeating a name on one left-hand side is a warning
@@ -152,8 +152,8 @@ whip(whites)  // this edge is red
 rest(yolks)   // this edge is not
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-09.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-09.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-09.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-09.dark.svg){.fiz-figure-dark}
 
 To style the node instead, put the style on the call that creates it.
 
@@ -196,5 +196,5 @@ semicolons:
 dough = knead(); loaf = shape(dough); bread = bake(loaf)
 ```
 
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-10.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-10.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-10.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/calls-and-variables/fig-10.dark.svg){.fiz-figure-dark}

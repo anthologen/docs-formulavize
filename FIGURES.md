@@ -37,8 +37,8 @@ Images are embedded directly after the closing fence as a markdown pair, one
 per theme:
 
 ```md
-![Rendered graph for the recipe above](/img/guide/styling/fig-01.light.svg){.fiz-figure .fiz-figure-light}
-![Rendered graph for the recipe above](/img/guide/styling/fig-01.dark.svg){.fiz-figure .fiz-figure-dark}
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.light.svg){.fiz-figure-light}
+![Rendered graph for the recipe above](/img/guide/styling/fig-01.dark.svg){.fiz-figure-dark}
 ```
 
 The `{.class}` attribute syntax comes from `@mdit/plugin-attrs`, which VitePress
@@ -46,8 +46,8 @@ bundles and enables by default (the `markdown.attrs` config option). Note that
 the plugin's `fence` rule is off by default, so curly attributes work on inline
 images like these but not on code blocks.
 
-The three classes are defined in `docs/.vitepress/theme/custom.css`, which is
-the only reason `docs/.vitepress/theme/` exists — the site otherwise uses the
+The two classes are defined in `docs/.vitepress/theme/custom.css`, which is the
+only reason `docs/.vitepress/theme/` exists — the site otherwise uses the
 default theme untouched.
 
 ## Which Blocks Get a Figure

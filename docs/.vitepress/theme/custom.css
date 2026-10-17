@@ -1,0 +1,15 @@
+/**
+ * Recipe figures rendered by the formulavize CLI.
+ *
+ * The CLI draws on a transparent background: the light theme labels nodes in
+ * black, the dark theme in near-white. A single image would therefore be
+ * unreadable in one of the two site themes, so every figure ships as a
+ * light/dark pair and only the matching one is shown.
+ */
+html:not(.dark) .fiz-figure-dark {
+  display: none;
+}
+
+html.dark .fiz-figure-light {
+  display: none;
+}

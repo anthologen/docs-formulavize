@@ -53,7 +53,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/formulavize/formulavize' },
+      { icon: 'github', link: 'https://github.com/formulavize/docs-formulavize' },
     ],
   },
 })
